@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:25-ea-17-jdk-slim
 
 ARG PZ_DIR=/opt/project_zomboid
 ARG PZ_SERVER_DIR=$PZ_DIR/Server
