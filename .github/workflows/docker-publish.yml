@@ -34,14 +34,3 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: rafaelprimeiro/pz-server:${{ env.TAG }}-amd64
-
-      # Build and push ARM64 (Raspberry) image
-      - name: Build and Push Raspberry (ARM64) Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          platforms: linux/arm64
-          tags: |
-            rafaelprimeiro/pz-server:${{ env.TAG }}-arm64
-            rafaelprimeiro/pz-server:latest
