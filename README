@@ -104,19 +104,23 @@ Esses arquivos são copiados durante o build do container.
 Exemplo de `docker-compose.yml`:
 
 ```yaml
-version: '3'
+version: '3.9'
 services:
-  project-zomboid:
-    build: .
-    container_name: pz-server
-    environment:
-      - PZ_USER=admin
-      - PZ_PASSWORD=senha1234
+  zomboid-server:
+    image: rafaelprimeiro/pz-server:latest
     ports:
       - "16261:16261/udp"
       - "16262:16262/udp"
       - "8766:8766/udp"
       - "8767:8767/udp"
+    volumes:
+      - ./Zomboid:/root/Zomboid
+    environment:
+      - SERVER_NAME=servertest
+      - ADMIN_USERNAME=bob
+      - ADMIN_PASSWORD=bob123
+      - MAX_MEMORY=2g
+      - MIN_MEMORY=1g
     restart: unless-stopped
 ```
 
@@ -134,6 +138,10 @@ docker-compose up -d
 - **Considere** limitar IPs ou usar firewall caso queira um servidor privado.
 
 ---
+
+## Gerenciador de server
+
+https://linuxgsm.com/servers/pzserver/
 
 ## 📜 Licença
 
