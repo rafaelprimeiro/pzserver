@@ -2,18 +2,19 @@ version: '3.9'
 
 services:
   zomboid-server:
-    #image: rafaelprimeiro/pz-server:latest
-    image: pzserver:latest
+    image: rafaelprimeiro/pz-server:latest
+    #image: pzserver:latest
     ports:
       - "16261:16261/udp"
       - "16262:16262/udp"
       - "8766:8766/udp"
       - "8767:8767/udp"
+      - "27015:27015/tcp"
     volumes:
       - ./Zomboid:/root/Zomboid
     environment:
       - SERVER_NAME
       - ADMIN_USERNAME
       - ADMIN_PASSWORD
-      - MAX_MEMORY=2g
+      - MAX_MEMORY=5g
       - MIN_MEMORY=1g
